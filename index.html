@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Ready Legal</title>
+<meta name="description" content="Ready Legal is a business and construction law firm founded in Orlando, FL, serving Central Florida's small business community.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy: #0b2a4a;
+  --navy-mid: #143a63;
+  --orange: #ff8c2a;
+  --orange-dark: #e67a1f;
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --gray: #e4e8f0;
+  --text: #1a2332;
+  --text-light: #5a6478;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  background: var(--navy);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.logo:hover { color: var(--orange); }
+
+nav { display: flex; gap: 28px; align-items: center; }
+nav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+nav a:hover { color: white; }
+
+.nav-cta {
+  background: var(--orange);
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 80px 48px;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
+    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
+  background-size: cover;
+  background-position: center right;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 60px);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.25s;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--gray);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trust-item span { color: var(--orange); font-size: 14px; }
+
+/* INTRO BAND */
+.intro-band {
+  background: var(--navy);
+  padding: 56px 48px;
+  border-bottom: 3px solid var(--orange);
+}
+
+.intro-band-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.intro-image { position: relative; }
+
+.intro-image::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px; right: 12px; bottom: 12px;
+  border: 2px solid var(--orange);
+  border-radius: 3px;
+  opacity: 0.4;
+}
+
+.intro-image img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  filter: grayscale(15%);
+}
+
+.intro-content .section-label { color: var(--orange); margin-bottom: 14px; }
+
+.intro-content h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.intro-content p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.68);
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+/* SECTION SHARED */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+/* STORY SECTIONS */
+.story-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.story-grid.reverse { direction: rtl; }
+.story-grid.reverse > * { direction: ltr; }
+
+.story-text p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+.story-text p:last-child { margin-bottom: 0; }
+
+.story-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aside-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-left: 3px solid var(--orange);
+  padding: 24px 24px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.aside-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.aside-card h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.aside-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* DIVIDER */
+.section-divider {
+  height: 1px;
+  background: var(--gray);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* COMMITMENTS SECTION */
+.commitments-section {
+  background: var(--navy);
+  padding: 80px 48px;
+}
+
+.commitments-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.commitments-inner .section-label { color: var(--orange); }
+
+.commitments-inner h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.commitments-intro {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  max-width: 620px;
+  line-height: 1.85;
+  margin-bottom: 48px;
+}
+
+.commitments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.commitment-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid var(--orange);
+  padding: 32px 28px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.commitment-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.commitment-num {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--orange);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.commitment-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.commitment-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* VALUES SECTION */
+.values-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.value-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--navy);
+  padding: 32px 28px;
+  border-radius: 2px;
+  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.value-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.value-card:hover {
+  border-top-color: var(--orange);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+
+.value-icon { font-size: 28px; margin-bottom: 16px; }
+
+.value-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.value-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* PULLQUOTE */
+.pullquote-section {
+  background: var(--off-white);
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
+  padding: 64px 48px;
+}
+
+.pullquote-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.pullquote-inner::before {
+  content: '\201C';
+  font-size: 120px;
+  color: var(--orange);
+  opacity: 0.1;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.pullquote-text {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+.pullquote-attr {
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* CTA / INTAKE */
+.cta-section {
+  background: var(--white);
+  border-top: 1px solid var(--gray);
+  padding: 80px 48px;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cta-left p {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.cta-phone {
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--navy);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+.cta-phone:hover { color: var(--orange); }
+.cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
+
+.form-box {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--orange);
+  padding: 40px 36px;
+  border-radius: 3px;
+}
+
+.form-box h3 {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: white;
+  margin-bottom: 18px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+form textarea { resize: vertical; }
+
+form button {
+  background: var(--orange);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+form button:hover { background: var(--orange-dark); }
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+  padding: 13px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 8px;
+}
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+/* FOOTER */
+footer { background: #07192c; padding: 56px 48px 28px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 28px;
+}
+
+.footer-brand .logo { display: block; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--orange); }
+
+.footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { display: none; }
+  header { padding: 0 24px; }
+  .hero { padding: 60px 24px; }
+  .trust-bar { padding: 14px 24px; gap: 20px; }
+  .intro-band { padding: 56px 24px; }
+  .intro-band-inner { grid-template-columns: 1fr; gap: 40px; }
+  .intro-image { max-width: 360px; }
+  .story-section { padding: 56px 24px; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-grid.reverse { direction: ltr; }
+  .commitments-section { padding: 56px 24px; }
+  .commitments-grid { grid-template-columns: 1fr; }
+  .values-section { padding: 56px 24px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .pullquote-section { padding: 48px 24px; }
+  .cta-section { padding: 56px 24px; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 48px 24px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <nav>
+    <a href="https://counsel.readylegal.net">Counsel</a>
+    <a href="https://practices.readylegal.net">Practice Areas</a>
+    <a href="https://readylegal.net/pricing/">Pricing</a>
+    <a href="#" style="color:white;">About</a>
+    <a href="https://readylegal.net/articles/">Blog</a>
+    <a href="#intake" class="nav-cta">Get Help</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ready Legal &mdash; Orlando, Florida</p>
+    <h1>About</h1>
+    <p class="hero-sub">A business and construction law firm serving Central Florida's small business community from the heart of Orlando.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="trust-item"><span>★</span> Best Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Super Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Veteran Owned</span>
+  <span class="trust-item"><span>★</span> Florida Statewide</span>
+</div>
+
+<!-- INTRO BAND -->
+<section class="intro-band">
+  <div class="intro-band-inner">
+    <div class="intro-image">
+      <img src="https://readylegal.net/wp-content/uploads/2024/12/professional-picture.png" alt="Ready Legal — Orlando, Florida">
+    </div>
+    <div class="intro-content">
+      <p class="section-label">Who We Are</p>
+      <h2>Orlando's Small Business Law Firm</h2>
+      <p>Ready Legal is a business law firm focused on construction law and real estate litigation. Centrally located in Orlando, it serves all of Central Florida. The firm was built with a singular mission: to provide cost-effective, personalized legal representation to the hardworking contractors, real estate professionals, and entrepreneurs who keep the community growing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATION SECTION -->
+<section class="story-section">
+  <div class="story-grid">
+    <div class="story-text">
+      <p class="section-label">Foundation</p>
+      <h2 class="section-title">Built From the Ground Up</h2>
+      <p>Ready Legal was founded in Orlando in 2023 with a singular focus: providing small businesses with prompt, capable, and cost-effective legal representation. The firm draws on a decade of construction industry experience — from Army engineering to large-firm practice — to serve Florida contractors, suppliers, and small business owners with the same standard of representation that larger companies take for granted.</p>
+      <a href="https://counsel.readylegal.net" class="btn-primary">Meet the Attorney &rarr;</a>
+    </div>
+    <div class="story-aside">
+      <div class="aside-card">
+        <h4>Recognition</h4>
+        <p>Florida Super Lawyers® Rising Stars (2021&ndash;2025) &bull; Best Lawyers® Ones to Watch (2022&ndash;2024) &bull; Construction Law Society of America &mdash; Invitee for Associate Fellowship (2022, 2024).</p>
+      </div>
+      <div class="aside-card">
+        <h4>Firm Profile</h4>
+        <p>Solo practice. Virtual office. No unnecessary overhead passed on to clients. Lean and efficient by design &mdash; so the focus stays on your matter, not firm administration.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Practice Areas</h4>
+        <p>Construction Law &bull; Business Law &bull; Litigation. Serving Florida contractors, suppliers, landlords, and small business owners statewide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PURPOSE SECTION -->
+<section class="story-section">
+  <div class="story-grid reverse">
+    <div class="story-aside">
+      <div class="aside-card">
+        <h4>The Name</h4>
+        <p>In the U.S. reserve armed forces, "readiness" refers to a unit's level of preparation and discipline — available when called upon. Ready Legal's name pays homage to this core value of prompt and effective service.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Solo Practice Advantage</h4>
+        <p>As a solo practice, Ready Legal maintains a 0% employee turnover rate. Your matter is handled by the same attorney from start to finish — no handoffs, no gatekeepers.</p>
+      </div>
+      <div class="aside-card">
+        <h4>Communication Promise</h4>
+        <p>A common client complaint in the legal industry is lack of communication. When you call with a question, you will speak directly to your attorney.</p>
+      </div>
+    </div>
+    <div class="story-text">
+      <p class="section-label">Client Service</p>
+      <h2 class="section-title">Clients First, Always</h2>
+      <p>Ready Legal was born out of the idea that Orlando's small business community should have access to prompt, personalized, and cost-effective legal representation in their times of need. That core value is embodied in the firm's name.</p>
+      <p>Ready Legal offers small businesses a personalized alternative to standard law firm bureaucracy, providing each client with individualized and consistent representation. The firm prides itself on deep, longstanding attorney-client relationships — built on direct communication and consistent handling of every matter.</p>
+      <p>Ready Legal understands that time is valuable and a business is its owner's livelihood. That's why the firm prioritizes accessibility, responsiveness, and practical solutions that work in the real world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENTS SECTION -->
+<section class="commitments-section">
+  <div class="commitments-inner">
+    <p class="section-label">Clients First, Always</p>
+    <h2>Three Commitments to Every Client</h2>
+    <p class="commitments-intro">Ready Legal believes in the importance of individualized and consistent representation. That means three basic commitments to every firm client, without exception.</p>
+    <div class="commitments-grid">
+      <div class="commitment-card">
+        <div class="commitment-num">01</div>
+        <h3>Individualized Attention</h3>
+        <p>Your legal matter will receive individualized attention and will not be ignored or deprioritized in favor of larger clients.</p>
+      </div>
+      <div class="commitment-card">
+        <div class="commitment-num">02</div>
+        <h3>Effective Pricing</h3>
+        <p>As a solo law practice, Ready Legal is able to handle matters efficiently and effectively — keeping overhead low and passing that value directly to clients.</p>
+      </div>
+      <div class="commitment-card">
+        <div class="commitment-num">03</div>
+        <h3>Consistent Representation</h3>
+        <p>As long as you are a client, your case will be handled by the same attorney from intake through resolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="values-section">
+  <p class="section-label">What Sets Us Apart</p>
+  <h2 class="section-title">More Than Legal Knowledge</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🏗️</div>
+      <h3>Industry Focus</h3>
+      <p>Deep roots in the construction industry — from Army engineering to contractor representation — give Ready Legal a practical understanding that most attorneys simply don't have.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">💼</div>
+      <h3>Business Judgment</h3>
+      <p>As an entrepreneur-driven firm, Ready Legal sees itself as a partner in its clients' success. The firm speaks the language of contractors, developers, and small business owners.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🇺🇸</div>
+      <h3>Veteran Owned</h3>
+      <p>Founded by a U.S. Army Reserve veteran, Ready Legal brings military discipline, mission focus, and a commitment to service to every client engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<section class="pullquote-section">
+  <div class="pullquote-inner">
+    <p class="pullquote-text">Ready Legal doesn't just handle cases — it builds relationships. Whether resolving today's legal challenge or planning for tomorrow's growth, the firm stands ready to help clients succeed.</p>
+    <p class="pullquote-attr">Ready Legal &mdash; Orlando, Florida</p>
+  </div>
+</section>
+
+<!-- INTAKE FORM -->
+<section class="cta-section" id="intake">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday &ndash; Friday &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Jane Smith" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="(407) 555-0000">
+
+        <label>Briefly Describe Your Legal Matter</label>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+
+        <button type="submit">Get Help &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
+          <li><a href="https://practices.readylegal.net">Practice Areas</a></li>
+          <li><a href="https://readylegal.net/pricing/">Pricing</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="https://readylegal.net/articles/">Blog</a></li>
+          <li><a href="#intake">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox &mdash; mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
+          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <br><br>
+          Veteran Owned &#127482;&#127480;
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">&copy; 2025 Ready Legal</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var siblings = el.parentElement.querySelectorAll('.aside-card, .commitment-card, .value-card');
+      var index = Array.prototype.indexOf.call(siblings, el);
+      el.style.animationDelay = (index * 0.12) + 's';
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.aside-card, .commitment-card, .value-card').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
