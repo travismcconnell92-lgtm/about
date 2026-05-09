@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,14 +88,21 @@ nav a:hover { color: white; }
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-video {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
-    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
-  background-size: cover;
-  background-position: center right;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%);
+  z-index: 1;
 }
 
 .hero-inner {
@@ -663,22 +670,25 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 <!-- HEADER -->
 <header>
-  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
   <nav>
-    <a href="https://counsel.readylegal.net">Counsel</a>
-    <a href="https://practices.readylegal.net">Practice Areas</a>
-    <a href="https://pricing.readylegal.net">Pricing</a>
+    <a href="https://counsel.readylegal.net/">Counsel</a>
+    <a href="https://practices.readylegal.net/">Practice Areas</a>
+    <a href="https://pricing.readylegal.net/">Pricing</a>
     <a href="#" style="color:white;">About</a>
-    <a href="https://resources.readylegal.net">Resources</a>
+    <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#intake" class="nav-cta">Get Help</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://videos.files.wordpress.com/FGZCVPLC/5513060-hd_1280_720_60fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow">Ready Legal &mdash; Orlando, Florida</p>
+    <p class="hero-eyebrow">Ready Legal — Orlando, Florida</p>
     <h1>About</h1>
     <p class="hero-sub">A business and construction law firm serving Central Florida's small business community from the heart of Orlando.</p>
   </div>
@@ -701,7 +711,12 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="intro-content">
       <p class="section-label">Who We Are</p>
       <h2>Orlando's Small Business Law Firm</h2>
-      <p>Ready Legal is a business law firm focused on construction law and real estate litigation. Centrally located in Orlando, it serves all of Central Florida. The firm was built with a singular mission: to provide cost-effective, personalized legal representation to the hardworking contractors, real estate professionals, and entrepreneurs who keep the community growing.</p>
+      <p>Ready Legal is a business law firm focused on construction law 
+and real estate litigation. Centrally located in Orlando, it serves all 
+of Central Florida. The firm was built with a singular mission: to 
+provide cost-effective, personalized legal representation to the 
+hardworking contractors, real estate professionals, and entrepreneurs 
+who keep the community growing.</p>
     </div>
   </div>
 </section>
@@ -712,21 +727,32 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="story-text">
       <p class="section-label">Foundation</p>
       <h2 class="section-title">Built From the Ground Up</h2>
-      <p>Ready Legal was founded in Orlando in 2023 with a singular focus: providing small businesses with prompt, capable, and cost-effective legal representation. The firm draws on a decade of construction industry experience — from Army engineering to large-firm practice — to serve Florida contractors, suppliers, and small business owners with the same standard of representation that larger companies take for granted.</p>
-      <a href="https://counsel.readylegal.net" class="btn-primary">Meet the Attorney &rarr;</a>
+      <p>Ready Legal was founded in Orlando in 2023 with a singular 
+focus: providing small businesses with prompt, capable, and 
+cost-effective legal representation. The firm draws on a decade of 
+construction industry experience — from Army engineering to large-firm 
+practice — to serve Florida contractors, suppliers, and small business 
+owners with the same standard of representation that larger companies 
+take for granted.</p>
+      <a href="https://counsel.readylegal.net/" class="btn-primary">Meet the Attorney →</a>
     </div>
     <div class="story-aside">
-      <div class="aside-card">
+      <div class="aside-card visible" style="animation-delay: 0s;">
         <h4>Recognition</h4>
-        <p>Florida Super Lawyers® Rising Stars (2021&ndash;2025) &bull; Best Lawyers® Ones to Watch (2022&ndash;2024) &bull; Construction Law Society of America &mdash; Invitee for Associate Fellowship (2022, 2024).</p>
+        <p>Florida Super Lawyers® Rising Stars (2021–2025) • Best 
+Lawyers® Ones to Watch (2022–2024) • Construction Law Society of America
+ — Invitee for Associate Fellowship (2022, 2024).</p>
       </div>
-      <div class="aside-card">
+      <div class="aside-card visible" style="animation-delay: 0.12s;">
         <h4>Firm Profile</h4>
-        <p>Solo practice. Virtual office. No unnecessary overhead passed on to clients. Lean and efficient by design &mdash; so the focus stays on your matter, not firm administration.</p>
+        <p>Solo practice. Virtual office. No unnecessary overhead passed
+ on to clients. Lean and efficient by design — so the focus stays on 
+your matter, not firm administration.</p>
       </div>
       <div class="aside-card">
         <h4>Practice Areas</h4>
-        <p>Construction Law &bull; Business Law &bull; Litigation. Serving Florida contractors, suppliers, landlords, and small business owners statewide.</p>
+        <p>Construction Law • Business Law • Litigation. Serving Florida
+ contractors, suppliers, landlords, and small business owners statewide.</p>
       </div>
     </div>
   </div>
@@ -740,23 +766,39 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="story-aside">
       <div class="aside-card">
         <h4>The Name</h4>
-        <p>In the U.S. reserve armed forces, "readiness" refers to a unit's level of preparation and discipline — available when called upon. Ready Legal's name pays homage to this core value of prompt and effective service.</p>
+        <p>In the U.S. reserve armed forces, "readiness" refers to a 
+unit's level of preparation and discipline — available when called upon.
+ Ready Legal's name pays homage to this core value of prompt and 
+effective service.</p>
       </div>
       <div class="aside-card">
         <h4>Solo Practice Advantage</h4>
-        <p>As a solo practice, Ready Legal maintains a 0% employee turnover rate. Your matter is handled by the same attorney from start to finish — no handoffs, no gatekeepers.</p>
+        <p>As a solo practice, Ready Legal maintains a 0% employee 
+turnover rate. Your matter is handled by the same attorney from start to
+ finish — no handoffs, no gatekeepers.</p>
       </div>
       <div class="aside-card">
         <h4>Communication Promise</h4>
-        <p>A common client complaint in the legal industry is lack of communication. When you call with a question, you will speak directly to your attorney.</p>
+        <p>A common client complaint in the legal industry is lack of 
+communication. When you call with a question, you will speak directly to
+ your attorney.</p>
       </div>
     </div>
     <div class="story-text">
       <p class="section-label">Client Service</p>
       <h2 class="section-title">Clients First, Always</h2>
-      <p>Ready Legal was born out of the idea that Orlando's small business community should have access to prompt, personalized, and cost-effective legal representation in their times of need. That core value is embodied in the firm's name.</p>
-      <p>Ready Legal offers small businesses a personalized alternative to standard law firm bureaucracy, providing each client with individualized and consistent representation. The firm prides itself on deep, longstanding attorney-client relationships — built on direct communication and consistent handling of every matter.</p>
-      <p>Ready Legal understands that time is valuable and a business is its owner's livelihood. That's why the firm prioritizes accessibility, responsiveness, and practical solutions that work in the real world.</p>
+      <p>Ready Legal was born out of the idea that Orlando's small 
+business community should have access to prompt, personalized, and 
+cost-effective legal representation in their times of need. That core 
+value is embodied in the firm's name.</p>
+      <p>Ready Legal offers small businesses a personalized alternative 
+to standard law firm bureaucracy, providing each client with 
+individualized and consistent representation. The firm prides itself on 
+deep, longstanding attorney-client relationships — built on direct 
+communication and consistent handling of every matter.</p>
+      <p>Ready Legal understands that time is valuable and a business is
+ its owner's livelihood. That's why the firm prioritizes accessibility, 
+responsiveness, and practical solutions that work in the real world.</p>
     </div>
   </div>
 </section>
@@ -766,7 +808,9 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="commitments-inner">
     <p class="section-label">Clients First, Always</p>
     <h2>Three Commitments to Every Client</h2>
-    <p class="commitments-intro">Ready Legal believes in the importance of individualized and consistent representation. That means three basic commitments to every firm client, without exception.</p>
+    <p class="commitments-intro">Ready Legal believes in the importance 
+of individualized and consistent representation. That means three basic 
+commitments to every firm client, without exception.</p>
     <div class="commitments-grid">
       <div class="commitment-card">
         <div class="commitment-num">01</div>
@@ -776,7 +820,9 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       <div class="commitment-card">
         <div class="commitment-num">02</div>
         <h3>Effective Pricing</h3>
-        <p>As a solo law practice, Ready Legal is able to handle matters efficiently and effectively — keeping overhead low and passing that value directly to clients.</p>
+        <p>As a solo law practice, Ready Legal is able to handle matters
+ efficiently and effectively — keeping overhead low and passing that 
+value directly to clients.</p>
       </div>
       <div class="commitment-card">
         <div class="commitment-num">03</div>
@@ -795,17 +841,23 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="value-card">
       <div class="value-icon">🏗️</div>
       <h3>Industry Focus</h3>
-      <p>Deep roots in the construction industry — from Army engineering to contractor representation — give Ready Legal a practical understanding that most attorneys simply don't have.</p>
+      <p>Deep roots in the construction industry — from Army engineering
+ to contractor representation — give Ready Legal a practical 
+understanding that most attorneys simply don't have.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">💼</div>
       <h3>Business Judgment</h3>
-      <p>As an entrepreneur-driven firm, Ready Legal sees itself as a partner in its clients' success. The firm speaks the language of contractors, developers, and small business owners.</p>
+      <p>As an entrepreneur-driven firm, Ready Legal sees itself as a 
+partner in its clients' success. The firm speaks the language of 
+contractors, developers, and small business owners.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">🇺🇸</div>
       <h3>Veteran Owned</h3>
-      <p>Founded by a U.S. Army Reserve veteran, Ready Legal brings military discipline, mission focus, and a commitment to service to every client engagement.</p>
+      <p>Founded by a U.S. Army Reserve veteran, Ready Legal brings 
+military discipline, mission focus, and a commitment to service to every
+ client engagement.</p>
     </div>
   </div>
 </section>
@@ -813,8 +865,11 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 <!-- PULLQUOTE -->
 <section class="pullquote-section">
   <div class="pullquote-inner">
-    <p class="pullquote-text">Ready Legal doesn't just handle cases — it builds relationships. Whether resolving today's legal challenge or planning for tomorrow's growth, the firm stands ready to help clients succeed.</p>
-    <p class="pullquote-attr">Ready Legal &mdash; Orlando, Florida</p>
+    <p class="pullquote-text">Ready Legal doesn't just handle cases — it
+ builds relationships. Whether resolving today's legal challenge or 
+planning for tomorrow's growth, the firm stands ready to help clients 
+succeed.</p>
+    <p class="pullquote-attr">Ready Legal — Orlando, Florida</p>
   </div>
 </section>
 
@@ -826,7 +881,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       <h2 class="section-title">Ready to speak with an attorney?</h2>
       <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
       <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
-      <p class="cta-hours">Monday &ndash; Friday &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+      <p class="cta-hours">Monday – Friday &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
     </div>
     <div class="form-box">
       <h3>Request a Consultation</h3>
@@ -834,18 +889,18 @@ footer { background: #07192c; padding: 56px 48px 28px; }
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
 
         <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required>
+        <input type="text" name="name" placeholder="Jane Smith" required="">
 
         <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required>
+        <input type="email" name="email" placeholder="jane@example.com" required="">
 
         <label>Phone</label>
         <input type="tel" name="phone" placeholder="(407) 555-0000">
 
         <label>Briefly Describe Your Legal Matter</label>
-        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
 
-        <button type="submit">Get Help &rarr;</button>
+        <button type="submit">Get Help →</button>
       </form>
     </div>
   </div>
@@ -856,19 +911,21 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for 
+Orlando's small business community. Construction law, business law, and 
+litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
-          <li><a href="https://practices.readylegal.net">Practice Areas</a></li>
-          <li><a href="https://pricing.readylegal.net">Pricing</a></li>
+          <li><a href="https://counsel.readylegal.net/">Counsel</a></li>
+          <li><a href="https://practices.readylegal.net/">Practice Areas</a></li>
+          <li><a href="https://pricing.readylegal.net/">Pricing</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="https://resources.readylegal.net">Resources</a></li>
+          <li><a href="https://resources.readylegal.net/">Resources</a></li>
           <li><a href="#intake">Contact</a></li>
         </ul>
       </div>
@@ -878,19 +935,24 @@ footer { background: #07192c; padding: 56px 48px 28px; }
           924 N. Magnolia Avenue<br>
           Suite 202, #1178<br>
           Orlando, FL 32803<br>
-          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox &mdash; mailing only</span>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
           <br><br>
           <a href="tel:4072582002">(407) 258-2002</a><br>
           <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
-          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <a href="https://home.readylegal.net/">www.readylegal.net</a>
           <br><br>
-          Veteran Owned &#127482;&#127480;
+          Veteran Owned 🇺🇸
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
-      <p class="footer-copy">&copy; 2025 Ready Legal</p>
+      <p class="footer-disclaimer">The information on this page is for 
+general informational purposes only and does not constitute legal 
+advice. Nothing here should be interpreted as an offer to provide legal 
+services. No attorney-client relationship is formed until a written 
+engagement agreement has been executed by both parties. Services are 
+limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">© 2025 Ready Legal</p>
     </div>
   </div>
 </footer>
@@ -914,5 +976,6 @@ document.querySelectorAll('.aside-card, .commitment-card, .value-card').forEach(
 });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
