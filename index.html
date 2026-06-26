@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Ready Legal</title>
 <meta name="description" content="Ready Legal is a business and construction law firm founded in Orlando, FL, serving Central Florida's small business community.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -19,9 +21,8 @@
   --text-light: #5a6478;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; overflow-x: hidden; }
-
 /* HEADER */
 header { background: var(--navy); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; height: 68px; box-shadow: 0 2px 24px rgba(0,0,0,0.25); }
 .logo { color: white; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
@@ -29,16 +30,15 @@ header { background: var(--navy); padding: 0 48px; display: flex; align-items: c
 nav { display: flex; gap: 28px; align-items: center; }
 nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; }
 nav a:hover { color: white; }
-.nav-cta { background: var(--orange); color: white !important; padding: 9px 20px; border-radius: 3px; font-weight: 600 !important; transition: background 0.3s !important; }
+.nav-cta { background: var(--orange); color: white !important; padding: 9px 20px; border-radius: 50px; font-weight: 600 !important; transition: background 0.3s !important; white-space: nowrap; }
 .nav-cta:hover { background: var(--orange-dark) !important; }
-
+.header-phone-mobile { display: none; }
 /* HAMBURGER */
 .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; }
 .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; transform-origin: center; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
 /* MOBILE MENU */
 .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy-mid); z-index: 99; flex-direction: column; padding: 8px 0 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.08); }
 .mobile-menu.open { display: flex; animation: menuSlideDown 0.22s ease forwards; }
@@ -46,9 +46,18 @@ nav a:hover { color: white; }
 .mobile-menu a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 15px; font-weight: 500; padding: 15px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
 .mobile-menu a:last-of-type { border-bottom: none; }
 .mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
-.mobile-menu .mobile-cta { background: var(--orange); color: white !important; margin: 16px 24px 0; border-radius: 3px; text-align: center; font-weight: 700 !important; padding: 14px 28px !important; border-bottom: none !important; }
+.mobile-menu .mobile-cta { background: var(--orange); color: white !important; margin: 16px 24px 0; border-radius: 50px; text-align: center; font-weight: 700 !important; padding: 14px 28px !important; border-bottom: none !important; }
 .mobile-menu .mobile-cta:hover { background: var(--orange-dark) !important; }
-
+/* MOBILE CONSULT BAR */
+.mobile-consult-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); border-top: 2px solid var(--orange); padding: 12px 20px; align-items: center; justify-content: center; box-shadow: 0 -4px 24px rgba(0,0,0,0.35); }
+.mobile-consult-bar a { display: block; background: var(--orange); color: white; width: 100%; max-width: 400px; padding: 13px 20px; font-size: 13px; font-weight: 700; font-family: 'Inter', sans-serif; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 50px; text-align: center; text-decoration: none; transition: background 0.3s; }
+.mobile-consult-bar a:hover { background: var(--orange-dark); }
+/* MOBILE FORM PANEL */
+.mobile-form-panel { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300; background: white; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.28); padding: 24px 24px 32px; max-height: 90vh; overflow-y: auto; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.32,0.72,0,1); }
+.mobile-form-panel.open { transform: translateY(0); }
+.mobile-form-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 299; }
+.mobile-form-panel-overlay.open { display: block; }
+.mobile-form-panel-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 22px; color: var(--text-light); cursor: pointer; line-height: 1; padding: 4px 8px; }
 /* HERO */
 .hero { position: relative; padding: 80px 48px; background: var(--navy); overflow: hidden; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
@@ -57,12 +66,10 @@ nav a:hover { color: white; }
 .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
 .hero h1 { font-weight: 700; font-size: clamp(36px, 5vw, 60px); color: white; line-height: 1.1; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; }
 .hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 560px; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
-
 /* TRUST BAR */
 .trust-bar { background: var(--off-white); border-bottom: 1px solid var(--gray); padding: 16px 48px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
 .trust-item { font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
 .trust-item span { color: var(--orange); font-size: 14px; }
-
 /* INTRO BAND */
 .intro-band { background: var(--navy); padding: 56px 48px; border-bottom: 3px solid var(--orange); }
 .intro-band-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
@@ -72,11 +79,9 @@ nav a:hover { color: white; }
 .intro-content .section-label { color: var(--orange); margin-bottom: 14px; }
 .intro-content h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: white; line-height: 1.15; margin-bottom: 20px; }
 .intro-content p { font-size: 16px; color: rgba(255,255,255,0.68); font-weight: 300; line-height: 1.85; }
-
 /* SECTION SHARED */
 .section-label { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
 .section-title { font-weight: 700; font-size: clamp(24px, 3vw, 36px); color: var(--navy); line-height: 1.15; margin-bottom: 20px; }
-
 /* STORY SECTIONS */
 .story-section { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
 .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -88,10 +93,8 @@ nav a:hover { color: white; }
 .aside-card { background: var(--off-white); border: 1px solid var(--gray); border-left: 3px solid var(--orange); padding: 24px 24px; border-radius: 2px; }
 .aside-card h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 10px; }
 .aside-card p { font-size: 13px; color: var(--text-light); line-height: 1.7; font-weight: 300; }
-
 /* DIVIDER */
 .section-divider { height: 1px; background: var(--gray); max-width: 1200px; margin: 0 auto; }
-
 /* COMMITMENTS SECTION */
 .commitments-section { background: var(--navy); padding: 80px 48px; }
 .commitments-inner { max-width: 1200px; margin: 0 auto; }
@@ -103,7 +106,6 @@ nav a:hover { color: white; }
 .commitment-num { font-size: 36px; font-weight: 700; color: var(--orange); opacity: 0.4; line-height: 1; margin-bottom: 14px; }
 .commitment-card h3 { font-size: 14px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 10px; }
 .commitment-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; }
-
 /* VALUES SECTION */
 .values-section { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
@@ -112,14 +114,12 @@ nav a:hover { color: white; }
 .value-icon { font-size: 28px; margin-bottom: 16px; }
 .value-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
 .value-card p { font-size: 13px; color: var(--text-light); line-height: 1.75; font-weight: 300; }
-
 /* PULLQUOTE */
 .pullquote-section { background: var(--off-white); border-top: 1px solid var(--gray); border-bottom: 1px solid var(--gray); padding: 64px 48px; }
 .pullquote-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; }
 .pullquote-inner::before { content: '\201C'; font-size: 120px; color: var(--orange); opacity: 0.1; position: absolute; top: -40px; left: 0; line-height: 1; font-family: 'Inter', sans-serif; }
 .pullquote-text { font-size: clamp(20px, 2.5vw, 26px); font-weight: 300; font-style: italic; color: var(--navy); line-height: 1.65; position: relative; z-index: 1; }
 .pullquote-attr { margin-top: 24px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); }
-
 /* CTA / INTAKE */
 .cta-section { background: var(--white); border-top: 1px solid var(--gray); padding: 80px 48px; }
 .cta-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -127,17 +127,16 @@ nav a:hover { color: white; }
 .cta-phone { font-weight: 700; font-size: 34px; color: var(--navy); text-decoration: none; display: block; margin-bottom: 6px; transition: color 0.3s; }
 .cta-phone:hover { color: var(--orange); }
 .cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
-.form-box { background: var(--off-white); border: 1px solid var(--gray); border-top: 3px solid var(--orange); padding: 40px 36px; border-radius: 3px; }
-.form-box h3 { font-weight: 700; font-size: 20px; color: var(--navy); margin-bottom: 24px; }
+.form-box { background: var(--off-white); border: 1px solid var(--gray); border-top: 3px solid var(--orange); padding: 40px 36px; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.form-box h3 { font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1.5px; }
 form label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
-form input, form select, form textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--gray); border-radius: 3px; font-size: 14px; font-family: 'Inter', sans-serif; color: var(--text); background: white; margin-bottom: 18px; transition: border-color 0.2s; box-sizing: border-box; }
+form input, form select, form textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--gray); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; color: var(--text); background: white; margin-bottom: 18px; transition: border-color 0.2s; box-sizing: border-box; }
 form input:focus, form select:focus, form textarea:focus { outline: none; border-color: var(--orange); }
 form textarea { resize: vertical; }
-form button { background: var(--orange); color: white; border: none; width: 100%; padding: 14px; font-size: 14px; font-weight: 700; font-family: 'Inter', sans-serif; border-radius: 3px; cursor: pointer; letter-spacing: 0.5px; transition: background 0.3s; }
+form button { background: var(--orange); color: white; border: none; width: 100%; padding: 14px; font-size: 14px; font-weight: 700; font-family: 'Inter', sans-serif; border-radius: 50px; cursor: pointer; letter-spacing: 0.5px; transition: background 0.3s; }
 form button:hover { background: var(--orange-dark); }
-.btn-primary { background: var(--orange); color: white; padding: 13px 28px; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; transition: background 0.3s, transform 0.2s; margin-top: 8px; }
+.btn-primary { background: var(--orange); color: white; padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; transition: background 0.3s, transform 0.2s; margin-top: 8px; }
 .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
-
 /* FOOTER */
 footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
@@ -155,15 +154,18 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
-
 /* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
 /* RESPONSIVE */
 @media (max-width: 960px) {
   nav { display: none; }
   .hamburger { display: flex; }
   header { padding: 0 24px; }
+  .header-phone-mobile { display: block; color: var(--orange); text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; margin-left: auto; margin-right: 16px; }
+  .mobile-consult-bar { display: flex; }
+  .mobile-form-panel { display: block; }
+  .cta-section { display: none; }
+  body { padding-bottom: 64px; }
   .hero { padding: 60px 24px; }
   .trust-bar { padding: 14px 24px; gap: 20px; }
   .intro-band { padding: 56px 24px; }
@@ -177,15 +179,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .values-section { padding: 56px 24px; }
   .values-grid { grid-template-columns: 1fr; }
   .pullquote-section { padding: 48px 24px; }
-  .cta-section { padding: 56px 24px; }
-  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   footer { padding: 48px 24px 24px; }
+  form input, form select, form textarea { font-size: 16px; }
 }
 </style>
 </head>
 <body>
-
 <!-- HEADER -->
 <header>
   <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
@@ -197,13 +197,13 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#intake" class="nav-cta">Get Help</a>
   </nav>
+  <a href="tel:4072582002" class="header-phone-mobile">(407) 258-2002</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </header>
-
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="https://counsel.readylegal.net/">Counsel</a>
@@ -211,9 +211,32 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <a href="https://pricing.readylegal.net/">Pricing</a>
   <a href="#" style="color:white;">About</a>
   <a href="https://resources.readylegal.net/">Resources</a>
-  <a href="#intake" class="mobile-cta">Get Help</a>
+  <a href="#" onclick="openMobileForm(); return false;" class="mobile-cta">Get Help</a>
 </div>
-
+<!-- MOBILE CONSULT BAR -->
+<div class="mobile-consult-bar">
+  <a href="#" onclick="openMobileForm(); return false;">Request a Consultation</a>
+</div>
+<!-- MOBILE FORM PANEL -->
+<div class="mobile-form-panel-overlay" id="mobileFormOverlay" onclick="closeMobileForm()"></div>
+<div class="mobile-form-panel" id="mobileFormPanel">
+  <button class="mobile-form-panel-close" onclick="closeMobileForm()" aria-label="Close">✕</button>
+  <div class="form-box" style="box-shadow:none;border:none;padding:0;">
+    <h3>Request a Consultation</h3>
+    <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="mobileForm">
+      <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+      <label for="mob-name">Name</label>
+      <input type="text" id="mob-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+      <label for="mob-email">Email</label>
+      <input type="email" id="mob-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+      <label for="mob-phone">Phone</label>
+      <input type="tel" id="mob-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+      <label for="mob-message">Briefly Describe Your Legal Matter</label>
+      <textarea id="mob-message" name="message" rows="3" placeholder="Tell us about your situation..." required></textarea>
+      <button type="submit">Get Help →</button>
+    </form>
+  </div>
+</div>
 <!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
@@ -226,7 +249,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <p class="hero-sub">A business and construction law firm serving Central Florida's small business community from the heart of Orlando.</p>
   </div>
 </section>
-
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <span class="trust-item"><span>★</span> Best Lawyers® Recognized</span>
@@ -234,7 +256,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <span class="trust-item"><span>★</span> Veteran Owned</span>
   <span class="trust-item"><span>★</span> Florida Statewide</span>
 </div>
-
 <!-- INTRO BAND -->
 <section class="intro-band">
   <div class="intro-band-inner">
@@ -248,7 +269,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </section>
-
 <!-- FOUNDATION SECTION -->
 <section class="story-section">
   <div class="story-grid">
@@ -274,9 +294,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </section>
-
 <div class="section-divider"></div>
-
 <!-- PURPOSE SECTION -->
 <section class="story-section">
   <div class="story-grid reverse">
@@ -303,7 +321,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </section>
-
 <!-- COMMITMENTS SECTION -->
 <section class="commitments-section">
   <div class="commitments-inner">
@@ -329,7 +346,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </section>
-
 <!-- VALUES SECTION -->
 <section class="values-section">
   <p class="section-label">What Sets Us Apart</p>
@@ -352,7 +368,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </section>
-
 <!-- PULLQUOTE -->
 <section class="pullquote-section">
   <div class="pullquote-inner">
@@ -360,7 +375,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <p class="pullquote-attr">Ready Legal — Orlando, Florida</p>
   </div>
 </section>
-
 <!-- INTAKE FORM -->
 <section class="cta-section" id="intake">
   <div class="cta-inner">
@@ -373,22 +387,21 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
     <div class="form-box">
       <h3>Request a Consultation</h3>
-      <form action="https://formspree.io/f/xgonadnj" method="POST">
+      <form action="https://formspree.io/f/xgonadnj" method="POST" autocomplete="off" id="desktopForm">
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required="">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required="">
-        <label>Phone</label>
-        <input type="tel" name="phone" placeholder="(407) 555-0000">
-        <label>Briefly Describe Your Legal Matter</label>
-        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
+        <label for="d-name">Name</label>
+        <input type="text" id="d-name" name="name" placeholder="Jane Smith" required autocomplete="new-password">
+        <label for="d-email">Email</label>
+        <input type="email" id="d-email" name="email" placeholder="jane@example.com" required autocomplete="new-password">
+        <label for="d-phone">Phone</label>
+        <input type="tel" id="d-phone" name="phone" placeholder="(407) 555-0000" autocomplete="new-password">
+        <label for="d-message">Briefly Describe Your Legal Matter</label>
+        <textarea id="d-message" name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
         <button type="submit">Get Help →</button>
       </form>
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -432,12 +445,10 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </footer>
-
 <script>
 var hamburger = document.getElementById('hamburger');
 var mobileMenu = document.getElementById('mobileMenu');
 var isOpen = false;
-
 hamburger.addEventListener('click', function() {
   isOpen = !isOpen;
   hamburger.classList.toggle('open', isOpen);
@@ -445,7 +456,6 @@ hamburger.addEventListener('click', function() {
   hamburger.setAttribute('aria-expanded', isOpen);
   mobileMenu.setAttribute('aria-hidden', !isOpen);
 });
-
 mobileMenu.querySelectorAll('a').forEach(function(link) {
   link.addEventListener('click', function() {
     isOpen = false;
@@ -455,15 +465,56 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
     mobileMenu.setAttribute('aria-hidden', 'true');
   });
 });
-
+</script>
+<script>
+function openMobileForm() {
+  document.getElementById('mobileFormPanel').classList.add('open');
+  document.getElementById('mobileFormOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileForm() {
+  document.getElementById('mobileFormPanel').classList.remove('open');
+  document.getElementById('mobileFormOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+<script>
+document.querySelectorAll('form[action*="formspree"]').forEach(function(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    var required = form.querySelectorAll('[required]');
+    var missing = false;
+    required.forEach(function(el) {
+      if (!el.value.trim()) { missing = true; el.style.borderColor = '#e53e3e'; }
+      else el.style.borderColor = '';
+    });
+    if (missing) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r) {
+      if (r.ok) { btn.textContent = 'Sent ✓'; form.reset(); }
+      else { btn.disabled = false; btn.textContent = 'Get Help →'; alert('Something went wrong. Please call us at (407) 258-2002.'); }
+    }).catch(function() {
+      btn.disabled = false; btn.textContent = 'Get Help →';
+      alert('Something went wrong. Please call us at (407) 258-2002.');
+    });
+  });
+});
+</script>
+<script>
 /* PROXIMITY EFFECT */
 (function () {
   var CFG = {
-    range: 180,
-    maxScale: 1.07,
-    maxBright: 1.14,
-    maxLift: 4,
-    easingPower: 2,
+    range: 180, maxScale: 1.07, maxBright: 1.14, maxLift: 4, easingPower: 2,
     transIn: 'transform 0.07s ease-out, filter 0.07s ease-out',
     transOut: 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.45s ease',
   };
@@ -518,5 +569,4 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
   document.addEventListener('pointerleave', function () { mx = -9999; my = -9999; scheduleUpdate(); });
 }());
 </script>
-
 </body></html>
